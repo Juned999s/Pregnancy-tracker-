@@ -1,0 +1,184 @@
+#:kivy 2.0
+
+<HomeScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 15
+        Label:
+            text: "Pregnancy Tracker"
+            font_size: 28
+            size_hint_y: 0.2
+        Button:
+            text: "Medicines"
+            font_size: 20
+            on_press: app.switch_to('meds')
+        Button:
+            text: "Tests"
+            font_size: 20
+            on_press: app.switch_to('tests')
+        Button:
+            text: "Appointments"
+            font_size: 20
+            on_press: app.switch_to('appointments')
+        Button:
+            text: "Weight / Kicks Log"
+            font_size: 20
+            on_press: app.switch_to('logs')
+
+<MedsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 15
+        spacing: 10
+        Button:
+            text: "< Back"
+            size_hint_y: 0.08
+            on_press: app.switch_to('home')
+        Label:
+            text: "Add Medicine"
+            size_hint_y: 0.08
+        TextInput:
+            id: med_name
+            hint_text: "Name (e.g. Folic Acid)"
+            multiline: False
+            size_hint_y: 0.08
+        TextInput:
+            id: med_dose
+            hint_text: "Dose (e.g. 5mg)"
+            multiline: False
+            size_hint_y: 0.08
+        TextInput:
+            id: med_time
+            hint_text: "Time (e.g. 08:00)"
+            multiline: False
+            size_hint_y: 0.08
+        Button:
+            text: "Add"
+            size_hint_y: 0.08
+            on_press: root.add_medicine()
+        ScrollView:
+            GridLayout:
+                id: meds_list
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+
+<TestsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 15
+        spacing: 10
+        Button:
+            text: "< Back"
+            size_hint_y: 0.08
+            on_press: app.switch_to('home')
+        Label:
+            text: "Add Test"
+            size_hint_y: 0.08
+        TextInput:
+            id: test_name
+            hint_text: "Test name (e.g. Glucose Screening)"
+            multiline: False
+            size_hint_y: 0.08
+        TextInput:
+            id: test_date
+            hint_text: "Date (YYYY-MM-DD)"
+            multiline: False
+            size_hint_y: 0.08
+        TextInput:
+            id: test_result
+            hint_text: "Result / Notes"
+            multiline: False
+            size_hint_y: 0.08
+        Button:
+            text: "Add"
+            size_hint_y: 0.08
+            on_press: root.add_test()
+        ScrollView:
+            GridLayout:
+                id: tests_list
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+
+<AppointmentsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 15
+        spacing: 10
+        Button:
+            text: "< Back"
+            size_hint_y: 0.08
+            on_press: app.switch_to('home')
+        Label:
+            text: "Add Appointment"
+            size_hint_y: 0.08
+        TextInput:
+            id: appt_date
+            hint_text: "Date (YYYY-MM-DD)"
+            multiline: False
+            size_hint_y: 0.08
+        TextInput:
+            id: appt_doctor
+            hint_text: "Doctor / Clinic"
+            multiline: False
+            size_hint_y: 0.08
+        TextInput:
+            id: appt_notes
+            hint_text: "Notes"
+            multiline: False
+            size_hint_y: 0.08
+        Button:
+            text: "Add"
+            size_hint_y: 0.08
+            on_press: root.add_appointment()
+        ScrollView:
+            GridLayout:
+                id: appts_list
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+
+<LogsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 15
+        spacing: 10
+        Button:
+            text: "< Back"
+            size_hint_y: 0.08
+            on_press: app.switch_to('home')
+        Label:
+            text: "Add Log Entry"
+            size_hint_y: 0.08
+        TextInput:
+            id: log_date
+            hint_text: "Date (YYYY-MM-DD)"
+            multiline: False
+            size_hint_y: 0.08
+        TextInput:
+            id: log_weight
+            hint_text: "Weight (kg)"
+            multiline: False
+            size_hint_y: 0.08
+        TextInput:
+            id: log_kicks
+            hint_text: "Kick count"
+            multiline: False
+            size_hint_y: 0.08
+        TextInput:
+            id: log_symptoms
+            hint_text: "Symptoms / Notes"
+            multiline: False
+            size_hint_y: 0.08
+        Button:
+            text: "Add"
+            size_hint_y: 0.08
+            on_press: root.add_log()
+        ScrollView:
+            GridLayout:
+                id: logs_list
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
